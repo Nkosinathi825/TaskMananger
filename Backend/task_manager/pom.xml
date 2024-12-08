@@ -30,30 +30,30 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-    <!-- JPA Dependency -->
+ 
     <dependency>
         <groupId>javax.persistence</groupId>
         <artifactId>javax.persistence-api</artifactId>
-        <version>2.2</version> <!-- You can use the latest version -->
+        <version>2.2</version> 
     </dependency>
-    <!-- Spring Boot Data JPA Starter (for additional JPA functionality and Spring Data integration) -->
+
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
-	   <!-- Hibernate Validator for Bean Validation -->
+
     <dependency>
         <groupId>org.hibernate.validator</groupId>
         <artifactId>hibernate-validator</artifactId>
-        <version>7.0.0.Final</version> <!-- You can use the latest version -->
+        <version>7.0.0.Final</version> 
     </dependency>
-    <!-- JPA Dependency -->
+    
     <dependency>
         <groupId>javax.persistence</groupId>
         <artifactId>javax.persistence-api</artifactId>
-        <version>2.2</version> <!-- You can use the latest version -->
+        <version>2.2</version> 
     </dependency>
-    <!-- Spring Boot Data JPA Starter (for additional JPA functionality and Spring Data integration) -->
+    
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>

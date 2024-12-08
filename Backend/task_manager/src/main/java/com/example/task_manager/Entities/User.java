@@ -1,32 +1,30 @@
 package com.example.task_manager.Entities;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
+import jakarta.persistence.*; 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 
-import javax.persistence.Column;
-
 @Entity
+@Table(name = "users") 
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
+    @Column(nullable = false)
     private String username;
 
     @NotNull
-    private String password; 
+    @Column(nullable = false)
+    private String password;
 
     @NotNull
     @Email
-    @Column(unique = true) 
+    @Column(nullable = false, unique = true)
     private String email;
 
-    //construtors
+    // Constructors
     public User() {}
 
     public User(String username, String password, String email) {
