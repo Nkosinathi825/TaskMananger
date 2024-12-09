@@ -6,23 +6,30 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
   private user = new BehaviorSubject<any>(null); 
-  private authenticated = new BehaviorSubject<boolean>(false); 
+  private authenticated = new BehaviorSubject<boolean>(false);
 
   constructor() {
+    const userData = sessionStorage.getItem('userData');
+    if (userData) {
+      this.authenticated.next(true); 
+      this.user.next(JSON.parse(userData));
+    }
   }
 
   login(userData: any) {
+    sessionStorage.setItem('userData', JSON.stringify(userData)); 
     this.authenticated.next(true); 
     this.user.next(userData); 
   }
 
   logout() {
-    this.authenticated.next(false); 
-    this.user.next(null); 
+    sessionStorage.removeItem('userData');
+    this.authenticated.next(false);
+    this.user.next(null);
   }
 
   isAuthenticated() {
-    return this.authenticated.asObservable();
+    return this.authenticated.asObservable(); 
   }
 
   getUser() {

@@ -1,0 +1,26 @@
+<main class="listcontainer">
+    <section class=" header">
+    <button class="btn btn-primary" (click)="Back()">Back</button>
+    </section>
+    <article class="secondcontainer">
+      <section class="body left">
+        <h2 class="text-center mb-4">Tasks</h2>
+        <article>
+          <ul class="list-group">
+            <li *ngFor="let task of tasks; let i = index" class="list-group-item" [ngClass]="{ 'completed': task.completed }">
+              <div class="class d-flex justify-content-between align-items-center">
+                <div class="title">
+                  <span class="name">{{ task.title }}</span><br>
+                  <span class="date">{{ task.dueDate | date }}</span>
+                </div>
+                <div class="description">
+                  <span>{{ task.description }}</span><br>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </article>
+  </main>
+  

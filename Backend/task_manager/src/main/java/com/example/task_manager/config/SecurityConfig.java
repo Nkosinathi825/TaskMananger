@@ -31,9 +31,9 @@ public class SecurityConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") // Allow all paths to be accessed
-                .allowedOrigins("http://localhost:4200") // Update with the appropriate frontend URL
-                .allowedMethods("GET", "POST", "PUT", "DELETE") // Specify allowed HTTP methods
-                .allowedHeaders("*"); // Allow all headers
+        registry.addMapping("/**") 
+                .allowedOrigins("http://localhost:4200") 
+                .allowedMethods("GET", "POST", "PUT", "DELETE") 
+                .allowedHeaders("*"); 
     }
 }

@@ -1,8 +1,10 @@
-Post  http://localhost:8080/api/auth/login
+Put http://localhost:8080/api/todos/17
 Content-Type: application/json
 
 {
-    "password":"1",
-    "email":"talk@gmail.com"
+    "title": "Complete",
+    "description": "Finish the task manager project",
+    "dueDate": "2024-12-09",
+    "completed": false
     
 }
