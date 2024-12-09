@@ -1,0 +1,21 @@
+.registercontainer{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .body{
+        width: 30%;
+        height: 60%;
+        border: 1px silver solid;
+        padding: 1rem;
+        justify-content: space-between;
+    .form{
+        button{
+            margin-top: 1rem;
+            
+        }
+    }   
+    }
+}
