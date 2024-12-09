@@ -1,10 +1,8 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
+<main class="logincontainer">
+  <article class="body">
       <h2 class="text-center mb-4">Login</h2>
       <form (ngSubmit)="onLogin()" #loginForm="ngForm">
-        <!-- Email -->
-        <div class="mb-3">
+        <section class="mb-3">
           <label for="email" class="form-label">Email</label>
           <input
             type="email"
@@ -12,11 +10,11 @@
             class="form-control"
             [(ngModel)]="credentials.email"
             name="email"
+            placeholder="Enter your Name"
             required
           />
-        </div>
-        <!-- Password -->
-        <div class="mb-3">
+        </section>
+        <section class="mb-3">
           <label for="password" class="form-label">Password</label>
           <input
             type="password"
@@ -24,19 +22,17 @@
             class="form-control"
             [(ngModel)]="credentials.password"
             name="password"
+            placeholder="Enter your Email"
             required
           />
-        </div>
-        <!-- Submit Button -->
+        </section>
         <button type="submit" class="btn btn-primary w-100" [disabled]="!loginForm.valid">
           Login
         </button>
       </form>
-      <!-- Navigation to Register -->
       <p class="text-center mt-3">
         Don't have an account?
         <a [routerLink]="'/register'" class="text-decoration-none">Register</a>
       </p>
-    </div>
-  </div>
-</div>
+  </article>
+</main>
