@@ -1,7 +1,62 @@
-<div >
-    <p>Welcome, {{ data?.username }}</p>
-
-  </div>
-  <div >
-    <p>Please log in to access this content.</p>
-  </div>
+<main class="todocontanier">
+  <h2 class="text-center mb-4">Welcome, {{ data?.username }}</h2>
+  <article class="body">
+    <form  (ngSubmit)="addTask()" #loginForm="ngForm">
+      <section class="mb-3">
+        <label for="text" class="form-label">Title</label>
+        <input
+          type="text"
+          id="title"
+          class="form-control"
+          [(ngModel)]="formData.title" 
+          name="title"
+          placeholder="Enter the Title"
+          required
+        />
+      </section>
+      <section class="mb-3">
+        <label for="password" class="form-label">Description</label>
+        <input
+          type="text"
+          id="description"
+          class="form-control"
+          [(ngModel)]="formData.description" 
+          name="description"
+          placeholder="Enter the discription"
+          required
+        />
+      </section>
+      <section class="mb-3">
+        <label for="due-date">Due Date:</label>
+        <input 
+         type="date" 
+         id="due-date" 
+         [(ngModel)]="formData.dueDate" 
+         class="form-control">
+      </section>
+      <button type="submit" class="btn btn-primary w-100" [disabled]="!loginForm.valid">
+        AddTask
+      </button>
+    </form>
+  
+    <section class="btn-group mb-3">
+      <button class="btn btn-secondary">Completed</button>
+      <button class="btn btn-secondary">Not Completed</button>
+    </section>
+    <section>
+      <ul>
+        <li *ngFor="let task of tasks" [ngClass]="{ 'completed': task.completed }">
+          <span>{{ task.title }}</span>
+          <span>{{ task.description }}</span>
+          <span>{{ task.dueDate | date }}</span>
+          <button (click)="deleteTask(i)">Delete</button>
+          <button (click)="editTask(i)">Edit</button>
+          <button (click)="toggleCompletion(i)">
+            {{ task.completed ? 'Mark as Incomplete' : 'Mark as Completed' }}
+          </button>
+        </li>
+      </ul>
+    </section>
+  </article>
+  
+</main>
