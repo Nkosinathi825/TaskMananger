@@ -22,15 +22,7 @@ export class AuthService {
     this.user.next(userData); 
   }
 
-  logout() {
-    sessionStorage.removeItem('userData');
-    this.authenticated.next(false);
-    this.user.next(null);
-  }
 
-  isAuthenticated() {
-    return this.authenticated.asObservable(); 
-  }
 
   getUser() {
     return this.user.asObservable(); 

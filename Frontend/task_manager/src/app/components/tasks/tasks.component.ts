@@ -52,9 +52,12 @@ export class TasksComponent implements OnInit {
   }
 
   logout(): void {
-    this.authService.logout(); 
-    this.router.navigate(['/login']); 
+    sessionStorage.clear()
+
+    
+    this.router.navigate(['/login'])
   }
+  
   switch(): void {
 
     this.router.navigate(['/list']);
