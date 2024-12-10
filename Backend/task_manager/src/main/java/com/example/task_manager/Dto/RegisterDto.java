@@ -5,6 +5,10 @@ public class RegisterDto {
     private String password;
     private String email;
 
+
+
+    
+
     // Getters and Setters
     public String getUsername() {
         return username;

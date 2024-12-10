@@ -1,10 +1,10 @@
-Put http://localhost:8080/api/todos/17
+PUT  http://localhost:8080/api/todos/41
 Content-Type: application/json
 
 {
-    "title": "Complete",
+    "title": "Second",
     "description": "Finish the task manager project",
     "dueDate": "2024-12-09",
-    "completed": false
+    "completed": true
     
 }

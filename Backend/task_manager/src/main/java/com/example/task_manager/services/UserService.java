@@ -21,7 +21,7 @@ public class UserService {
 
     public User registerUser(RegisterDto registerDto) {
         if (userRepository.findByEmail(registerDto.getEmail()) != null) {
-            throw new RuntimeException("Email already exists");
+            throw new RuntimeException("Email exists");
         }else{
             String encodedPassword = passwordEncoder.encode(registerDto.getPassword());
             User user = new User(registerDto.getUsername(), encodedPassword, registerDto.getEmail());
