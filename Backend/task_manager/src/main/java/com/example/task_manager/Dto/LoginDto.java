@@ -5,7 +5,7 @@ public class LoginDto {
     private String email;
     private String password;
 
-    // Getters and Setters
+    // Geters and Setters
     public String getEmail() {
         return email;
     }

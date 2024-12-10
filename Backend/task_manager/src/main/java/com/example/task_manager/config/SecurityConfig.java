@@ -22,7 +22,7 @@ public class SecurityConfig implements WebMvcConfigurer {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity
+            .csrf(csrf -> csrf.disable()) 
             .authorizeHttpRequests(auth -> auth
                 .anyRequest().permitAll() // Permit all requests without authentication
             );

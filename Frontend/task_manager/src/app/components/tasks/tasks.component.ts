@@ -53,13 +53,10 @@ export class TasksComponent implements OnInit {
 
   logout(): void {
     sessionStorage.clear()
-
-    
     this.router.navigate(['/login'])
   }
   
   switch(): void {
-
     this.router.navigate(['/list']);
   }
 
@@ -93,7 +90,7 @@ export class TasksComponent implements OnInit {
       this.http.post<Task>(`http://localhost:8080/api/todos/${this.data.id}`, newTask).subscribe(
         (response) => {
           this.tasks.push(response);
-          this.categorizeTasks(); // Update lists after adding a task
+          this.categorizeTasks(); 
           this.resetForm();
         },
         (error) => {
@@ -113,9 +110,9 @@ export class TasksComponent implements OnInit {
     if (taskId) {
       this.http.delete(`http://localhost:8080/api/todos/${taskId}`).subscribe(
         () => {
-          // Remove from the respective list
+
           taskList.splice(index, 1);
-          // Update the master list
+  
           this.tasks = this.tasks.filter(task => task.id !== taskId);
         },
         (error) => {
@@ -136,14 +133,14 @@ export class TasksComponent implements OnInit {
   
       this.http.put<Task>(`http://localhost:8080/api/todos/${task.id}`, task).subscribe(
         (response: Task) => {
-          // Remove from current list and add to the other
+
           taskList.splice(index, 1);
           if (task.completed) {
             this.completedTasks.push(task);
           } else {
             this.notCompletedTasks.push(task);
           }
-          // Update the master task list
+
           const idx = this.tasks.findIndex(t => t.id === task.id);
           if (idx !== -1) {
             this.tasks[idx] = task;
@@ -176,12 +173,11 @@ export class TasksComponent implements OnInit {
     
         this.http.put<Task>(`http://localhost:8080/api/todos/${this.editingTaskId}`, updatedTask).subscribe(
           (response: Task) => {
-            // Update the respective task in `tasks` and recategorize
             const idx = this.tasks.findIndex(t => t.id === this.editingTaskId);
             if (idx !== -1) {
               this.tasks[idx] = response;
             }
-            this.categorizeTasks(); // Reorganize tasks into their lists
+            this.categorizeTasks();
             this.cancelEditing();
           },
           (error) => {

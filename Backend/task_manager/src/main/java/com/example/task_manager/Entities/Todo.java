@@ -26,7 +26,7 @@ public class Todo {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    // Constructors
+
     public Todo() {}
 
     public Todo(String title, String description, LocalDate dueDate, boolean completed, User user) {
@@ -37,7 +37,7 @@ public class Todo {
         this.user = user;
     }
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../auth.service'; // Adjust the import path as necessary
+import { AuthService } from '../../auth.service'; 
 
 @Component({
   selector: 'app-login',
@@ -27,10 +27,10 @@ export class LoginComponent {
         console.log('Login successful:', response);
         alert('Login successful!');
         
-        // Use AuthService to manage user state
+      
         this.authService.login(response);
 
-        // Redirect to the tasks page
+        
         this.router.navigate(['/todolist']);
       },
       error => {
