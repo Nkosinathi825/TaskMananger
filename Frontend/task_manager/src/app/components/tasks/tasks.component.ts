@@ -170,24 +170,28 @@ export class TasksComponent implements OnInit {
   
 
   updateTask(): void {
-    if (this.editingTaskId !== null) {
-      const updatedTask: Task = { ...this.formData };
-  
-      this.http.put<Task>(`http://localhost:8080/api/todos/${this.editingTaskId}`, updatedTask).subscribe(
-        (response: Task) => {
-          // Update the respective task in `tasks` and recategorize
-          const idx = this.tasks.findIndex(t => t.id === this.editingTaskId);
-          if (idx !== -1) {
-            this.tasks[idx] = response;
+    if (this.formData.title && this.formData.description && this.formData.dueDate) {
+      if (this.editingTaskId !== null) {
+        const updatedTask: Task = { ...this.formData };
+    
+        this.http.put<Task>(`http://localhost:8080/api/todos/${this.editingTaskId}`, updatedTask).subscribe(
+          (response: Task) => {
+            // Update the respective task in `tasks` and recategorize
+            const idx = this.tasks.findIndex(t => t.id === this.editingTaskId);
+            if (idx !== -1) {
+              this.tasks[idx] = response;
+            }
+            this.categorizeTasks(); // Reorganize tasks into their lists
+            this.cancelEditing();
+          },
+          (error) => {
+            console.error('Error updating task:', error);
+            alert('Failed to update task. Please try again.');
           }
-          this.categorizeTasks(); // Reorganize tasks into their lists
-          this.cancelEditing();
-        },
-        (error) => {
-          console.error('Error updating task:', error);
-          alert('Failed to update task. Please try again.');
-        }
-      );
+        );
+      }
+    }else {
+      alert('Please fill in all fields.');
     }
   }
   
